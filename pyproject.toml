@@ -1,0 +1,10 @@
+[project]
+name = "context-window-fixer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp>=1.22.0",
+    "mcpo>=0.0.19",
+]

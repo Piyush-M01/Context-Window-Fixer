@@ -1,0 +1,162 @@
+2025-11-25 18:03:51,622 - INFO - Processing request of type ListToolsRequest
+2025-11-25 18:04:23,047 - INFO - Processing request of type CallToolRequest
+2025-11-25 18:04:50,548 - INFO - Processing request of type CallToolRequest
+2025-11-25 18:04:50,549 - INFO - Listed files successfully
+2025-11-25 18:55:42,083 - INFO - Processing request of type ListToolsRequest
+2025-11-25 18:57:28,317 - INFO - Processing request of type CallToolRequest
+2025-11-25 18:57:28,723 - INFO - output: --- Storage Folder ---
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/
+  Subdirectories: .github, small-test-repo, .git
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.github
+  Subdirectories: workflows
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.github/workflows
+  Files: snyk.yml
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo
+  Subdirectories: .github, .git
+  Files: foo5, foo3, boom1.txt, foo1, boom.txt, foo, foo4, foo2, EXAMPLE
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.github
+  Subdirectories: workflows
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.github/workflows
+  Files: snyk.yml
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git
+  Subdirectories: objects, hooks, refs, branches, logs, info
+  Files: config, description, packed-refs, HEAD, index
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/objects
+  Subdirectories: pack, info
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/objects/pack
+  Files: pack-c39d35da971dcd7e73c14c24626e1ae34fe01595.pack, pack-c39d35da971dcd7e73c14c24626e1ae34fe01595.rev, pack-c39d35da971dcd7e73c14c24626e1ae34fe01595.idx
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/objects/info
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/hooks
+  Files: sendemail-validate.sample, commit-msg.sample, fsmonitor-watchman.sample, pre-push.sample, pre-applypatch.sample, pre-commit.sample, pre-rebase.sample, pre-receive.sample, push-to-checkout.sample, pre-merge-commit.sample, applypatch-msg.sample, update.sample, prepare-commit-msg.sample, post-update.sample
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/refs
+  Subdirectories: tags, heads, remotes
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/refs/tags
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/refs/heads
+  Files: master
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/refs/remotes
+  Subdirectories: origin
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/refs/remotes/origin
+  Files: HEAD
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/branches
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/logs
+  Subdirectories: refs
+  Files: HEAD
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/logs/refs
+  Subdirectories: heads, remotes
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/logs/refs/heads
+  Files: master
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/logs/refs/remotes
+  Subdirectories: origin
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/logs/refs/remotes/origin
+  Files: HEAD
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/.git/info
+  Files: exclude
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git
+  Subdirectories: objects, hooks, refs, branches, logs, info
+  Files: config, description, packed-refs, HEAD, index
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/objects
+  Subdirectories: pack, info
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/objects/pack
+  Files: pack-c39d35da971dcd7e73c14c24626e1ae34fe01595.pack, pack-c39d35da971dcd7e73c14c24626e1ae34fe01595.rev, pack-c39d35da971dcd7e73c14c24626e1ae34fe01595.idx
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/objects/info
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/hooks
+  Files: sendemail-validate.sample, commit-msg.sample, fsmonitor-watchman.sample, pre-push.sample, pre-applypatch.sample, pre-commit.sample, pre-rebase.sample, pre-receive.sample, push-to-checkout.sample, pre-merge-commit.sample, applypatch-msg.sample, update.sample, prepare-commit-msg.sample, post-update.sample
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/refs
+  Subdirectories: tags, heads, remotes
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/refs/tags
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/refs/heads
+  Files: master
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/refs/remotes
+  Subdirectories: origin
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/refs/remotes/origin
+  Files: HEAD
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/branches
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/logs
+  Subdirectories: refs
+  Files: HEAD
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/logs/refs
+  Subdirectories: heads, remotes
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/logs/refs/heads
+  Files: master
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/logs/refs/remotes
+  Subdirectories: origin
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/logs/refs/remotes/origin
+  Files: HEAD
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/.git/info
+  Files: exclude
+
+
+--- Uploaded Files ---
+Directory: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+
+
+2025-11-25 18:57:28,724 - INFO - Listed files successfully
+2025-11-25 18:59:42,610 - INFO - Processing request of type CallToolRequest
+2025-11-25 19:02:39,346 - INFO - Processing request of type ListToolsRequest
+2025-11-25 19:02:55,934 - INFO - Processing request of type CallToolRequest
+2025-11-25 19:02:55,935 - INFO - output: --- Storage Folder ---
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/
+  Subdirectories: small-test-repo
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo
+  Files: foo5, foo3, boom1.txt, foo1, boom.txt, foo, foo4, foo2, EXAMPLE
+
+
+--- Uploaded Files ---
+Directory: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+
+
+2025-11-25 19:02:55,935 - INFO - Listed files successfully
+2025-11-25 19:04:08,792 - INFO - Processing request of type CallToolRequest
+2025-11-25 19:04:08,793 - INFO - output: --- Storage Folder ---
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/
+  Subdirectories: small-test-repo
+
+Directory: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo
+  Files: foo5, foo3, boom1.txt, foo1, boom.txt, foo, foo4, foo2, EXAMPLE
+
+
+--- Uploaded Files ---
+Directory: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+
+
+2025-11-25 19:04:08,793 - INFO - Listed files successfully
