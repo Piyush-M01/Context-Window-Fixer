@@ -8,4 +8,5 @@ dependencies = [
     "mcp>=1.22.0",
     "mcpo>=0.0.19",
     "pypdf>=6.4.0",
+    "watchdog>=6.0.0",
 ]

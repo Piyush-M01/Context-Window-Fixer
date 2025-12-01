@@ -55,10 +55,9 @@ class Config:
         Returns:
             List of directory paths to search
         """
-        paths = [cls.STORAGE_PATH]
-        if os.path.exists(cls.UPLOADED_FILES_PATH):
-            paths.append(cls.UPLOADED_FILES_PATH)
-        return paths
+        # Only search in local storage path
+        # Files from UPLOADED_FILES_PATH are synced to STORAGE_PATH
+        return [cls.STORAGE_PATH]
     
     @classmethod
     def is_image_file(cls, filename: str) -> bool:

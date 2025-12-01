@@ -16,6 +16,7 @@ import base64
 
 from filereader import FileReader
 from config import Config
+from synchronizer import FileSynchronizer
 from pypdf import PdfReader
 
 from exceptions import (
@@ -39,30 +40,44 @@ logging.basicConfig(
 # Initialize components
 logger = logging.getLogger(__name__)
 file_reader = FileReader("", logger)
+synchronizer = FileSynchronizer()
 mcp = FastMCP(Config.SERVER_NAME)
 
 # Ensure required directories exist
 Config.ensure_directories_exist()
 
+# Perform initial synchronization and start background monitoring
+logger.info("Starting background file synchronizer...")
+synchronizer.start_watching()
+
 # Track all files found during directory listing
 list_of_files: set[str] = set()
 
+
+def update_list_of_files(file_path: str):
+    logger.info(f"Updating list of files with: {file_path}")
+    list_files(file_path)    
+
+def normalize_name(name: str) -> str:
+    """Normalize a name for fuzzy matching by lowercasing and replacing underscores with hyphens."""
+    return name.lower().replace('_', '-')
 
 def find_file_in_paths(file_name: str, search_paths: list[str]) -> Optional[str]:
     """
     Search for a file across multiple directory paths.
     
     Performs a case-insensitive partial match to handle files with
-    tokens added by upload portals.
+    tokens added by upload portals. Supports both simple filenames
+    and paths with subdirectories (e.g., 'folder/file.txt').
     
     Args:
-        file_name: Name of the file to search for (can be partial)
+        file_name: Name or path of the file to search for (can be partial)
         search_paths: List of directory paths to search
         
     Returns:
         Full path to the matched file, or None if not found
     """
-    file_name_lower = file_name.lower()
+    normalized_search = normalize_name(file_name)
     
     for search_path in search_paths:
         if not os.path.exists(search_path):
@@ -74,16 +89,21 @@ def find_file_in_paths(file_name: str, search_paths: list[str]) -> Optional[str]
                 # Skip .git directories
                 dirs[:] = [d for d in dirs if d != '.git']
                 
-                # Check for partial match
-                matched_file = next(
-                    (f for f in files if file_name_lower in f.lower()),
-                    None
-                )
-                
-                if matched_file:
-                    full_path = os.path.join(root, matched_file)
-                    logger.info(f"File '{file_name}' found at: {full_path}")
-                    return full_path
+                # Check for partial match against both filename and relative path
+                for f in files:
+                    full_path = os.path.join(root, f)
+                    # Get the relative path from the search_path root
+                    relative_path = os.path.relpath(full_path, search_path)
+                    
+                    # Normalize for comparison
+                    norm_f = normalize_name(f)
+                    norm_rel = normalize_name(relative_path)
+                    
+                    # Match against either the filename or the relative path
+                    if (normalized_search in norm_f or 
+                        normalized_search in norm_rel):
+                        logger.info(f"File '{file_name}' matched to: {full_path} (relative: {relative_path})")
+                        return full_path
                     
         except PermissionError as e:
             logger.warning(f"Permission denied accessing {search_path}: {e}")
@@ -95,151 +115,85 @@ def find_file_in_paths(file_name: str, search_paths: list[str]) -> Optional[str]
     return None
 
 
-def read_pdf_file(file_path: str) -> str:
+def find_directory_in_paths(directory_name: str, search_paths: list[str]) -> Optional[str]:
     """
-    Read and extract text from a PDF file.
+    Search for a directory across multiple directory paths.
+    
+    Performs a case-insensitive partial match to find subdirectories.
     
     Args:
-        file_path: Path to the PDF file
+        directory_name: Name or path of the directory to search for
+        search_paths: List of directory paths to search within
         
     Returns:
-        Extracted text from the PDF
-        
-    Raises:
-        FileReadError: If PDF cannot be read or text cannot be extracted
+        Full path to the matched directory, or None if not found
     """
-    try:        
-        reader = PdfReader(file_path)
-        text = ""
-        
-        for page_num, page in enumerate(reader.pages, 1):
-            page_text = page.extract_text() or ""
-            text += page_text
-            logger.debug(f"Extracted text from page {page_num}")
-        
-        if not text.strip():
-            logger.warning(f"No text extracted from PDF: {file_path}")
-            return "Warning: PDF file appears to be empty or contains only images."
-        
-        logger.info(f"Successfully extracted text from PDF: {file_path}")
-        return text
-        
-    except ImportError as e:
-        logger.error("pypdf library not available")
-        raise FileReadError(
-            file_name=file_path,
-            reason="pypdf library not installed"
-        ) from e
-    except Exception as e:
-        logger.error(f"Error reading PDF file '{file_path}': {e}")
-        raise FileReadError(
-            file_name=file_path,
-            reason=f"PDF extraction failed: {str(e)}"
-        ) from e
-
-
-def read_image_file(file_path: str) -> str:
-    """
-    Read an image file and return base64-encoded content.
+    normalized_search = normalize_name(directory_name)
     
-    Args:
-        file_path: Path to the image file
-        
-    Returns:
-        Base64-encoded image data with format description
-        
-    Raises:
-        FileReadError: If image cannot be read
-    """
-    try:        
-        with open(file_path, 'rb') as f:
-            binary_content = f.read()
-            encoded_content = base64.b64encode(binary_content).decode('utf-8')
+    for search_path in search_paths:
+        if not os.path.exists(search_path):
+            logger.warning(f"Search path does not exist: {search_path}")
+            continue
             
-        file_extension = Path(file_path).suffix
-        logger.info(f"Successfully encoded image file: {file_path}")
-        
-        return f"Image file ({file_extension}) - Base64 encoded:\n{encoded_content}"
-        
-    except Exception as e:
-        logger.error(f"Error reading image file '{file_path}': {e}")
-        raise FileReadError(
-            file_name=file_path,
-            reason=f"Image read failed: {str(e)}"
-        ) from e
-
-
-def read_text_file(file_path: str) -> str:
-    """
-    Read a text file with encoding fallback.
-    
-    Args:
-        file_path: Path to the text file
-        
-    Returns:
-        Contents of the text file
-        
-    Raises:
-        FileReadError: If file cannot be read
-        InvalidFileTypeError: If file is binary
-    """
-    # Check if file is binary
-    try:
-        with open(file_path, 'rb') as f:
-            sample = f.read(Config.BINARY_CHECK_BYTES)
-            if b'\x00' in sample:
-                raise InvalidFileTypeError(
-                    file_name=file_path,
-                    file_type="binary",
-                    reason="File contains null bytes and cannot be read as text"
-                )
-    except Exception as e:
-        if isinstance(e, InvalidFileTypeError):
-            raise
-        logger.error(f"Error checking file type: {e}")
-        raise FileReadError(file_name=file_path, reason=str(e)) from e
-    
-    # Try reading as text with encoding fallback
-    for encoding in [Config.ENCODING_PRIMARY, Config.ENCODING_FALLBACK]:
         try:
-            with open(file_path, 'r', encoding=encoding) as f:
-                contents = f.read()
-                logger.info(f"Successfully read text file with {encoding} encoding")
-                return contents
-        except UnicodeDecodeError:
-            if encoding == Config.ENCODING_FALLBACK:
-                raise FileReadError(
-                    file_name=file_path,
-                    reason=f"Cannot decode file with {encoding} encoding"
-                )
-            logger.debug(f"Failed to read with {encoding}, trying fallback")
+            for root, dirs, files in os.walk(search_path):
+                # Skip .git directories
+                dirs[:] = [d for d in dirs if d != '.git']
+                
+                # Check for partial match against directory names and relative paths
+                for d in dirs:
+                    full_path = os.path.join(root, d)
+                    # Get the relative path from the search_path root
+                    relative_path = os.path.relpath(full_path, search_path)
+                    
+                    # Normalize for comparison
+                    norm_d = normalize_name(d)
+                    norm_rel = normalize_name(relative_path)
+                    
+                    # Match against either the directory name or the relative path
+                    if (normalized_search in norm_d or 
+                        normalized_search in norm_rel):
+                        logger.info(f"Directory '{directory_name}' matched to: {full_path} (relative: {relative_path})")
+                        return full_path
+                    
+        except PermissionError as e:
+            logger.warning(f"Permission denied accessing {search_path}: {e}")
             continue
         except Exception as e:
-            logger.error(f"Error reading file: {e}")
-            raise FileReadError(file_name=file_path, reason=str(e)) from e
+            logger.error(f"Error searching in {search_path}: {e}")
+            continue
     
-    # This should never be reached but included for safety
-    raise FileReadError(file_name=file_path, reason="All encoding attempts failed")
+    return None
+
 
 
 @mcp.tool()
 def read_file(file_name: str) -> str:
     """
-    Read the contents of a file.
+    Read the contents of a specific file.
     
     Supports text files, PDFs, and images. Images are returned as base64-encoded data.
-    The function performs a case-insensitive partial match on the filename.
+    The function performs a case-insensitive partial match on the filename and supports
+    reading files in subdirectories.
     
     Args:
-        file_name: The name of the file to read (can be partial)
-        
+        file_name: The name or path of the file to read. Can be:
+                  - Just a filename: 'boom.txt'
+                  - A relative path: 'small-test-repo/boom.txt'
+                  - Partial matches are supported
+         
     Returns:
         The contents of the file, or an error message
+        
+    Examples:
+        - To read a file in a subdirectory: file_name = "small-test-repo/boom.txt"
+        - To read a file by name only: file_name = "boom.txt"
     """
     if not file_name or not file_name.strip():
         return "Error: File name cannot be empty."
     
     file_name = file_name.strip()
+    
     logger.info(f"Reading file: {file_name}")
     logger.debug(f"Cached files: {len(list_of_files)} files")
     
@@ -262,11 +216,11 @@ def read_file(file_name: str) -> str:
         
         # Determine file type and read accordingly
         if Config.is_pdf_file(file_path):
-            return read_pdf_file(file_path)
+            return file_reader.read_pdf_file(file_path)
         elif Config.is_image_file(file_path):
-            return read_image_file(file_path)
+            return file_reader.read_image_file(file_path)
         else:
-            return read_text_file(file_path)
+            return file_reader.read_text_file(file_path)
             
     except InvalidFileTypeError as e:
         return f"Error: {e.message}\n{e.details}"
@@ -281,7 +235,54 @@ def read_file(file_name: str) -> str:
         logger.exception(f"Unexpected error reading file '{file_name}'")
         return f"Error: An unexpected error occurred: {str(e)}"
 
-
+# @mcp.tool()
+# def read_files_within_folder(folder_name: str) -> str:
+#     """
+#     Read all files within a folder.
+    
+#     Args:
+#         folder_name: The name of the folder to read files from
+        
+#     Returns:
+#         Success message with contents from each of the files, or error message
+#     """
+#     if not folder_name or not folder_name.strip():
+#         return "Error: Folder name cannot be empty."
+    
+#     folder_name = folder_name.strip()
+#     logger.info(f"Reading files within folder: {folder_name}")
+    
+#     try:
+#         # Search in configured paths
+#         search_paths = Config.get_search_paths()
+#         folder_path = find_file_in_paths(folder_name, search_paths)
+        
+#         if folder_path is None:
+#             searched = ", ".join(search_paths)
+#             logger.error(f"Folder '{folder_name}' not found in any search path")
+#             return f"Error: Folder '{folder_name}' not found.\nSearched in: {searched}"
+        
+#         # Read all files in the folder
+#         files = os.listdir(folder_path)
+#         file_contents = []
+#         for file_name in files:
+#             file_path = os.path.join(folder_path, file_name)
+#             if os.path.isfile(file_path):
+#                 try:
+#                     file_content = read_file(file_name)
+#                     file_contents.append(f"File: {file_name}\n{file_content}")
+#                 except Exception as e:
+#                     logger.error(f"Error reading file '{file_name}': {e}")
+#                     file_contents.append(f"Error reading file '{file_name}': {e}")
+        
+#         if not file_contents:
+#             return f"Error: No files found in folder '{folder_name}'."
+        
+#         return "\n".join(file_contents)
+#     except Exception as e:
+#         logger.exception(f"Unexpected error reading files within folder '{folder_name}'")
+#         return f"Error: An unexpected error occurred: {str(e)}"
+    
 @mcp.tool()
 def clone_github_repo(url: str) -> str:
     """
@@ -331,6 +332,8 @@ def clone_github_repo(url: str) -> str:
             timeout=300  # 5 minute timeout
         )
         
+        update_list_of_files(repo_destination)
+                
         logger.info(f"Repository cloned successfully to: {repo_destination}")
         return f"Repository '{url}' cloned successfully to '{repo_destination}'."
         
@@ -348,6 +351,29 @@ def clone_github_repo(url: str) -> str:
         logger.exception(f"Unexpected error cloning repository '{url}'")
         return f"Error: An unexpected error occurred: {str(e)}"
 
+
+
+
+def get_most_recent_directory(path: str) -> Optional[str]:
+    """Find the most recently modified directory in the given path."""
+    try:
+        if not os.path.exists(path):
+            return None
+            
+        directories = []
+        for item in os.listdir(path):
+            item_path = os.path.join(path, item)
+            if os.path.isdir(item_path) and item not in ['.git', '.github']:
+                directories.append((item, os.path.getmtime(item_path)))
+        
+        if not directories:
+            return None
+            
+        # Sort by mtime descending
+        directories.sort(key=lambda x: x[1], reverse=True)
+        return directories[0][0]
+    except Exception:
+        return None
 
 def build_files(directory: str, max_depth: int = Config.DEFAULT_MAX_DEPTH) -> str:
     """
@@ -376,6 +402,7 @@ def build_files(directory: str, max_depth: int = Config.DEFAULT_MAX_DEPTH) -> st
         )
     
     output = ""
+    most_recent_dir = get_most_recent_directory(directory)
     
     def _list_dir(path: str, current_depth: int = 0) -> None:
         """Recursive helper to list directory contents."""
@@ -400,7 +427,14 @@ def build_files(directory: str, max_depth: int = Config.DEFAULT_MAX_DEPTH) -> st
             # Build output
             output += f"Directory: {path}\n"
             if dirs:
-                output += f"  Subdirectories: {', '.join(sorted(dirs))}\n"
+                dir_list = []
+                for d in sorted(dirs):
+                    # Mark the most recent directory if we are in the root storage path
+                    if current_depth == 0 and d == most_recent_dir:
+                        dir_list.append(f"{d} [MOST RECENT]")
+                    else:
+                        dir_list.append(d)
+                output += f"  Subdirectories: {', '.join(dir_list)}\n"
             if files:
                 output += f"  Files: {', '.join(sorted(files))}\n"
             output += "\n"
@@ -424,14 +458,20 @@ def build_files(directory: str, max_depth: int = Config.DEFAULT_MAX_DEPTH) -> st
 @mcp.tool()
 def list_files(directory: str = ".") -> str:
     """
-    List the files in a directory.
+    List the files and subdirectories in a directory.
     
     Args:
-        directory: The directory to list files from. 
-                  Use "." or "" for default storage and upload paths.
+        directory: The directory to list files from. Can be:
+                  - "." or "" (empty): Lists all files in default storage and upload directories
+                  - A directory name: "small-test-repo" (searches in storage paths)
+                  - An absolute path: "/home/user/folder"
                   
     Returns:
-        Formatted list of files and directories
+        Formatted list of files and directories with subdirectories and file counts
+        
+    Examples:
+        - List all storage: directory = "." or directory = ""
+        - List specific folder: directory = "small-test-repo"
     """
     try:
         # Default to storage folder when directory is empty or "."
@@ -458,13 +498,23 @@ def list_files(directory: str = ".") -> str:
             # List specific directory
             directory = directory.strip()
             
-            # Expand user home directory if needed
-            directory = os.path.expanduser(directory)
+            # First, try to find it in the search paths
+            search_paths = Config.get_search_paths()
+            found_directory = find_directory_in_paths(directory, search_paths)
             
-            # Make absolute path if relative
-            if not os.path.isabs(directory):
-                directory = os.path.abspath(directory)
+            if found_directory:
+                # Use the found directory
+                directory = found_directory
+                logger.info(f"Found directory in search paths: {directory}")
+            else:
+                # Expand user home directory if needed
+                directory = os.path.expanduser(directory)
+                
+                # Make absolute path if relative
+                if not os.path.isabs(directory):
+                    directory = os.path.abspath(directory)
             
+            # For specific directories, we want to see the contents, so use default depth
             output = build_files(directory, max_depth=Config.DEFAULT_MAX_DEPTH)
         
         logger.info("Listed files successfully")
@@ -480,6 +530,168 @@ def list_files(directory: str = ".") -> str:
         logger.exception(f"Unexpected error listing files in '{directory}'")
         return f"Error: An unexpected error occurred: {str(e)}"
 
+
+@mcp.tool()
+def read_latest_content() -> str:
+    """
+    Find and read the most recently added/modified content (file or repository).
+    
+    This tool identifies the most recently modified item in the storage directory,
+    whether it is a full repository (folder) or a single uploaded file.
+    
+    Use this tool to "read the last uploaded file", "check the latest repo",
+    or "get the most recent context".
+    
+    Returns:
+        The content of the most recent file or all files in the most recent repository.
+    """
+    try:
+        storage_path = Config.STORAGE_PATH
+        if not os.path.exists(storage_path):
+            return f"Error: Storage directory does not exist: {storage_path}"
+            
+        # Find most recent item (file or dir)
+        items = []
+        for item in os.listdir(storage_path):
+            if item in ['.git', '.github', '.DS_Store']:
+                continue
+                
+            item_path = os.path.join(storage_path, item)
+            mtime = os.path.getmtime(item_path)
+            is_dir = os.path.isdir(item_path)
+            items.append((item, item_path, mtime, is_dir))
+            
+        if not items:
+            return "No files or repositories found in storage."
+            
+        # Sort by modification time (newest first)
+        items.sort(key=lambda x: x[2], reverse=True)
+        name, path, mtime, is_dir = items[0]
+        
+        from datetime import datetime
+        timestamp = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d %H:%M:%S")
+        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        output = f"*** CONTEXT UPDATE: LATEST CONTENT DETECTED ***\n"
+        output += f"Time: {current_time}\n"
+        output += f"Latest Item: {name} ({'Directory/Repository' if is_dir else 'File'})\n"
+        output += f"Last Modified: {timestamp}\n"
+        output += f"Location: {path}\n"
+        output += f"NOTE: Focus ONLY on the content below. Ignore previous context.\n\n"
+        output += f"=== START OF CONTENT ===\n\n"
+        
+        files_content = []
+        
+        if is_dir:
+            # It's a repository/directory - read all files inside
+            for root, dirs, files in os.walk(path):
+                dirs[:] = [d for d in dirs if d != '.git']
+                
+                for file_name in files:
+                    full_path = os.path.join(root, file_name)
+                    relative_path = os.path.relpath(full_path, path)
+                    
+                    try:
+                        if Config.is_image_file(file_name):
+                            content = "[Image File]"
+                        elif Config.is_pdf_file(file_name):
+                            file_reader.file_path = full_path
+                            content = file_reader.read_pdf_file(full_path)
+                        else:
+                            file_reader.file_path = full_path
+                            try:
+                                content = file_reader.read_text_file(full_path)
+                            except InvalidFileTypeError:
+                                content = "[Binary File]"
+                        
+                        files_content.append(f"--- File: {relative_path} ---\n{content}\n")
+                    except Exception as e:
+                        files_content.append(f"--- File: {relative_path} ---\nError: {str(e)}\n")
+        else:
+            # It's a single file - read it directly
+            try:
+                if Config.is_image_file(name):
+                    content = "[Image File]"
+                elif Config.is_pdf_file(name):
+                    file_reader.file_path = path
+                    content = file_reader.read_pdf_file(path)
+                else:
+                    file_reader.file_path = path
+                    try:
+                        content = file_reader.read_text_file(path)
+                    except InvalidFileTypeError:
+                        content = "[Binary File]"
+                
+                files_content.append(f"--- File: {name} ---\n{content}\n")
+            except Exception as e:
+                files_content.append(f"--- File: {name} ---\nError: {str(e)}\n")
+                
+        if not files_content:
+            output += "No readable content found."
+        else:
+            output += "\n".join(files_content)
+            
+        output += "\n=== END OF CONTENT ===\n"
+        
+        logger.info(f"Chain: Read latest content '{name}' ({'dir' if is_dir else 'file'})")
+        return output
+
+    except Exception as e:
+        logger.exception("Error in read_latest_content")
+        return f"Error processing latest content: {str(e)}"
+
+
+
+@mcp.tool()
+def list_files_within_folder(folder_name: str) -> str:
+    """
+    List the files and subdirectories within a specific folder/directory.
+    
+    This tool is for listing DIRECTORY contents only. To read the contents 
+    of an individual file, use the read_file() tool instead.
+    
+    Args:
+        folder_name: The name of the FOLDER/DIRECTORY to list files from.
+                    This must be a directory, not a file path.
+        
+    Returns:
+        Formatted list of files and subdirectories in the folder
+        
+    Example:
+        folder_name = "small-test-repo" will list all files in that directory
+    """
+    try:
+        folder_name = folder_name.strip()
+        
+        # Search for the folder in configured search paths
+        search_paths = Config.get_search_paths()
+        folder_path = find_directory_in_paths(folder_name, search_paths)
+        
+        if folder_path is None:
+            searched = ", ".join(search_paths)
+            raise DirectoryAccessError(
+                directory=folder_name,
+                reason=f"Folder not found in search paths: {searched}"
+            )
+        
+        if not os.path.isdir(folder_path):
+            raise DirectoryAccessError(
+                directory=folder_path,
+                reason="Path is not a directory"
+            )
+        
+        logger.info(f"Listing files in folder: {folder_path}")
+        return build_files(folder_path, max_depth=Config.DEFAULT_MAX_DEPTH)
+    except DirectoryAccessError as e:
+        logger.error(f"Directory access error: {e.message}")
+        return f"Error: {e.message}\n{e.details}"
+    except PermissionError as e:
+        logger.error(f"Permission denied for directory '{folder_path}'")
+        return f"Error: Permission denied for directory '{folder_path}'."
+    except Exception as e:
+        logger.exception(f"Unexpected error listing files in '{folder_path}'")
+        return f"Error: An unexpected error occurred: {str(e)}"        
+        
 
 if __name__ == "__main__":
     logger.info(f"Starting {Config.SERVER_NAME} MCP server")

@@ -355,3 +355,400 @@ Directory: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uplo
 2025-12-01 00:05:35,991 - INFO - Reading file: 2. snyk.yml
 2025-12-01 00:05:35,991 - ERROR - File '2. snyk.yml' not found in provided file list
 2025-12-01 00:05:35,991 - ERROR - File '2. snyk.yml' not found in any search path
+2025-12-01 00:09:02,659 - INFO - Processing request of type CallToolRequest
+2025-12-01 00:09:02,660 - INFO - Cloning repository: https://github.com/Piyush-M01/uploading-user-input-in-MongoDB-using-pymongo.git
+2025-12-01 00:09:03,742 - INFO - Repository cloned successfully to: /home/piyush/mcp_project/context_window_fixer/storage/uploading-user-input-in-MongoDB-using-pymongo
+2025-12-01 00:09:52,180 - INFO - Processing request of type CallToolRequest
+2025-12-01 00:09:52,180 - INFO - Reading file: uploading-user-input-in-MongoDB-using-pymongo/README.md
+2025-12-01 00:09:52,180 - ERROR - File 'uploading-user-input-in-MongoDB-using-pymongo/README.md' not found in provided file list
+2025-12-01 00:09:52,180 - ERROR - File 'uploading-user-input-in-MongoDB-using-pymongo/README.md' not found in any search path
+2025-12-01 00:20:33,675 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 00:20:33,675 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 00:20:33,676 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 00:20:33,683 - INFO - Processing request of type ListToolsRequest
+2025-12-01 00:20:52,214 - INFO - Processing request of type CallToolRequest
+2025-12-01 00:20:52,214 - INFO - Cloning repository: https://github.com/Piyush-M01/uploading-user-input-in-MongoDB-using-pymongo.git
+2025-12-01 00:20:53,080 - INFO - Updating list of files with: /home/piyush/mcp_project/context_window_fixer/storage/uploading-user-input-in-MongoDB-using-pymongo
+2025-12-01 00:20:53,081 - INFO - Listed files successfully
+2025-12-01 00:20:53,081 - INFO - Repository cloned successfully to: /home/piyush/mcp_project/context_window_fixer/storage/uploading-user-input-in-MongoDB-using-pymongo
+2025-12-01 00:21:36,484 - INFO - Processing request of type CallToolRequest
+2025-12-01 00:21:36,485 - INFO - Reading file: README.md
+2025-12-01 00:21:36,485 - INFO - File 'README.md' found at: /home/piyush/mcp_project/context_window_fixer/storage/uploading-user-input-in-MongoDB-using-pymongo/README.md
+2025-12-01 00:21:36,485 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 00:22:43,428 - INFO - Processing request of type CallToolRequest
+2025-12-01 00:22:43,428 - INFO - Listed files successfully
+2025-12-01 00:23:56,095 - INFO - Processing request of type CallToolRequest
+2025-12-01 00:23:56,095 - INFO - Reading file: couple of python files within the repository I just asked you clone
+2025-12-01 00:23:56,095 - ERROR - File 'couple of python files within the repository I just asked you clone' not found in provided file list
+2025-12-01 00:23:56,095 - ERROR - File 'couple of python files within the repository I just asked you clone' not found in any search path
+2025-12-01 13:25:07,104 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 13:25:07,751 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 13:25:07,751 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 13:25:07,758 - INFO - Processing request of type ListToolsRequest
+2025-12-01 13:57:15,204 - INFO - Processing request of type CallToolRequest
+2025-12-01 13:57:15,205 - INFO - Reading file: uploading-user-input-in-MongoDB-using-pymongo
+2025-12-01 13:57:15,205 - ERROR - File 'uploading-user-input-in-MongoDB-using-pymongo' not found in provided file list
+2025-12-01 13:57:15,537 - ERROR - File 'uploading-user-input-in-MongoDB-using-pymongo' not found in any search path
+2025-12-01 14:26:04,895 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 14:26:04,895 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 14:26:04,895 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 14:26:04,902 - INFO - Processing request of type ListToolsRequest
+2025-12-01 14:27:29,069 - INFO - Processing request of type CallToolRequest
+2025-12-01 14:28:51,826 - INFO - Processing request of type CallToolRequest
+2025-12-01 14:28:51,826 - INFO - Reading file: userinputdatapymongo.py
+2025-12-01 14:28:51,826 - INFO - File 'userinputdatapymongo.py' found at: /home/piyush/mcp_project/context_window_fixer/storage/uploading-user-input-in-MongoDB-using-pymongo/userinputdatapymongo.py
+2025-12-01 14:28:51,826 - ERROR - Unexpected error reading file 'userinputdatapymongo.py'
+Traceback (most recent call last):
+  File "/home/piyush/mcp_project/context_window_fixer/main.py", line 146, in read_file
+    return file_reader.read_text_file(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: FileReader.read_text_file() takes 1 positional argument but 2 were given
+2025-12-01 14:29:33,459 - INFO - Processing request of type CallToolRequest
+2025-12-01 14:29:33,459 - INFO - Reading file: userinputdatapymongo.py
+2025-12-01 14:29:33,460 - INFO - File 'userinputdatapymongo.py' found at: /home/piyush/mcp_project/context_window_fixer/storage/uploading-user-input-in-MongoDB-using-pymongo/userinputdatapymongo.py
+2025-12-01 14:29:33,460 - ERROR - Unexpected error reading file 'userinputdatapymongo.py'
+Traceback (most recent call last):
+  File "/home/piyush/mcp_project/context_window_fixer/main.py", line 146, in read_file
+    return file_reader.read_text_file(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: FileReader.read_text_file() takes 1 positional argument but 2 were given
+2025-12-01 14:31:07,853 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 14:31:07,853 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 14:31:07,853 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 14:31:07,861 - INFO - Processing request of type ListToolsRequest
+2025-12-01 14:31:21,140 - INFO - Processing request of type CallToolRequest
+2025-12-01 14:31:21,141 - INFO - Reading file: userinputdatapymongo.py
+2025-12-01 14:31:21,141 - ERROR - File 'userinputdatapymongo.py' not found in provided file list
+2025-12-01 14:31:21,141 - INFO - File 'userinputdatapymongo.py' found at: /home/piyush/mcp_project/context_window_fixer/storage/uploading-user-input-in-MongoDB-using-pymongo/userinputdatapymongo.py
+2025-12-01 14:31:21,141 - ERROR - Unexpected error reading file 'userinputdatapymongo.py'
+Traceback (most recent call last):
+  File "/home/piyush/mcp_project/context_window_fixer/filereader.py", line 254, in read_text_file
+    sample = f.read(Config.BINARY_CHECK_BYTES)
+                    ^^^^^^
+NameError: name 'Config' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/mcp_project/context_window_fixer/main.py", line 146, in read_file
+    return file_reader.read_text_file(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/mcp_project/context_window_fixer/filereader.py", line 262, in read_text_file
+    if isinstance(e, InvalidFileTypeError):
+                     ^^^^^^^^^^^^^^^^^^^^
+NameError: name 'InvalidFileTypeError' is not defined
+2025-12-01 14:32:48,592 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 14:32:48,592 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 14:32:48,592 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 14:32:48,600 - INFO - Processing request of type ListToolsRequest
+2025-12-01 14:33:02,310 - INFO - Processing request of type CallToolRequest
+2025-12-01 14:33:02,310 - INFO - Reading file: userinputdatapymongo.py
+2025-12-01 14:33:02,311 - ERROR - File 'userinputdatapymongo.py' not found in provided file list
+2025-12-01 14:33:02,311 - INFO - File 'userinputdatapymongo.py' found at: /home/piyush/mcp_project/context_window_fixer/storage/uploading-user-input-in-MongoDB-using-pymongo/userinputdatapymongo.py
+2025-12-01 14:33:02,311 - ERROR - Unexpected error reading file 'userinputdatapymongo.py'
+Traceback (most recent call last):
+  File "/home/piyush/mcp_project/context_window_fixer/filereader.py", line 272, in read_text_file
+    logger.info(f"Successfully read text file with {encoding} encoding")
+    ^^^^^^
+NameError: name 'logger' is not defined. Did you mean: 'self.logger'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/piyush/mcp_project/context_window_fixer/main.py", line 146, in read_file
+    return file_reader.read_text_file(file_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/piyush/mcp_project/context_window_fixer/filereader.py", line 283, in read_text_file
+    logger.error(f"Error reading file: {e}")
+    ^^^^^^
+NameError: name 'logger' is not defined. Did you mean: 'self.logger'?
+2025-12-01 14:34:19,902 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 14:34:19,903 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 14:34:19,903 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 14:34:19,910 - INFO - Processing request of type ListToolsRequest
+2025-12-01 14:34:29,691 - INFO - Processing request of type CallToolRequest
+2025-12-01 14:34:29,691 - INFO - Reading file: userinputdatapymongo.py
+2025-12-01 14:34:29,691 - ERROR - File 'userinputdatapymongo.py' not found in provided file list
+2025-12-01 14:34:29,691 - INFO - File 'userinputdatapymongo.py' found at: /home/piyush/mcp_project/context_window_fixer/storage/uploading-user-input-in-MongoDB-using-pymongo/userinputdatapymongo.py
+2025-12-01 14:34:29,691 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:00:23,683 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:00:23,683 - ERROR - Directory access error: Cannot access directory '/home/piyush/mcp_project/context_window_fixer/small-test-repo'
+2025-12-01 15:01:26,429 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:01:26,430 - INFO - Listed files successfully
+2025-12-01 15:02:24,097 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:02:24,097 - INFO - Listed files successfully
+2025-12-01 15:03:29,542 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:03:29,548 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:03:29,549 - INFO - Reading file: EXAMPLE
+2025-12-01 15:03:29,549 - INFO - File 'EXAMPLE' found at: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/EXAMPLE
+2025-12-01 15:03:29,573 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:03:29,582 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:03:29,582 - INFO - Reading file: boom.txt
+2025-12-01 15:03:29,582 - INFO - File 'boom.txt' found at: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/boom.txt
+2025-12-01 15:03:29,583 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:03:29,588 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:03:29,589 - INFO - Reading file: boom1.txt
+2025-12-01 15:03:29,589 - INFO - File 'boom1.txt' found at: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/boom1.txt
+2025-12-01 15:03:29,589 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:03:29,595 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:03:29,595 - INFO - Reading file: foo
+2025-12-01 15:03:29,595 - INFO - File 'foo' found at: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/foo5
+2025-12-01 15:03:29,595 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:03:29,601 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:03:29,601 - INFO - Reading file: foo1
+2025-12-01 15:03:29,601 - INFO - File 'foo1' found at: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/foo1
+2025-12-01 15:03:29,607 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:03:29,612 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:03:29,612 - INFO - Reading file: foo2
+2025-12-01 15:03:29,612 - INFO - File 'foo2' found at: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/foo2
+2025-12-01 15:03:29,613 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:03:29,619 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:03:29,619 - INFO - Reading file: foo3
+2025-12-01 15:03:29,619 - INFO - File 'foo3' found at: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/foo3
+2025-12-01 15:03:29,619 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:03:29,625 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:03:29,625 - INFO - Reading file: foo4
+2025-12-01 15:03:29,625 - INFO - File 'foo4' found at: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/foo4
+2025-12-01 15:03:29,626 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:03:29,631 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:03:29,631 - INFO - Reading file: foo5
+2025-12-01 15:03:29,631 - INFO - File 'foo5' found at: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/foo5
+2025-12-01 15:03:29,631 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:05:05,401 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:05:05,401 - INFO - Reading file: small-test-repo/EXAMPLE
+2025-12-01 15:05:05,401 - ERROR - File 'small-test-repo/EXAMPLE' not found in provided file list
+2025-12-01 15:05:05,401 - ERROR - File 'small-test-repo/EXAMPLE' not found in any search path
+2025-12-01 15:05:05,407 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:05:05,407 - INFO - Reading file: small-test-repo/boom.txt
+2025-12-01 15:05:05,407 - ERROR - File 'small-test-repo/boom.txt' not found in provided file list
+2025-12-01 15:05:05,408 - ERROR - File 'small-test-repo/boom.txt' not found in any search path
+2025-12-01 15:05:05,413 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:05:05,413 - INFO - Reading file: small-test-repo/boom1.txt
+2025-12-01 15:05:05,413 - ERROR - File 'small-test-repo/boom1.txt' not found in provided file list
+2025-12-01 15:05:05,413 - ERROR - File 'small-test-repo/boom1.txt' not found in any search path
+2025-12-01 15:05:05,420 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:05:05,420 - INFO - Reading file: small-test_repo/foo
+2025-12-01 15:05:05,420 - ERROR - File 'small-test_repo/foo' not found in provided file list
+2025-12-01 15:05:05,420 - ERROR - File 'small-test_repo/foo' not found in any search path
+2025-12-01 15:05:05,428 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:05:05,428 - INFO - Reading file: small-test_repo/foo1
+2025-12-01 15:05:05,428 - ERROR - File 'small-test_repo/foo1' not found in provided file list
+2025-12-01 15:05:05,428 - ERROR - File 'small-test_repo/foo1' not found in any search path
+2025-12-01 15:05:05,435 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:05:05,435 - INFO - Reading file: small-test_repo/foo2
+2025-12-01 15:05:05,435 - ERROR - File 'small-test_repo/foo2' not found in provided file list
+2025-12-01 15:05:05,436 - ERROR - File 'small-test_repo/foo2' not found in any search path
+2025-12-01 15:05:05,442 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:05:05,442 - INFO - Reading file: small-test_repo/foo3
+2025-12-01 15:05:05,442 - ERROR - File 'small-test_repo/foo3' not found in provided file list
+2025-12-01 15:05:05,442 - ERROR - File 'small-test_repo/foo3' not found in any search path
+2025-12-01 15:05:05,447 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:05:05,447 - INFO - Reading file: small-test_repo/foo4
+2025-12-01 15:05:05,447 - ERROR - File 'small-test_repo/foo4' not found in provided file list
+2025-12-01 15:05:05,448 - ERROR - File 'small-test_repo/foo4' not found in any search path
+2025-12-01 15:05:05,452 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:05:05,452 - INFO - Reading file: small-test_repo/foo5
+2025-12-01 15:05:05,453 - ERROR - File 'small-test_repo/foo5' not found in provided file list
+2025-12-01 15:05:05,453 - ERROR - File 'small-test_repo/foo5' not found in any search path
+2025-12-01 15:10:38,796 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 15:10:38,796 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 15:10:38,796 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 15:10:38,804 - INFO - Processing request of type ListToolsRequest
+2025-12-01 15:10:48,675 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:11:31,088 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:11:31,116 - ERROR - Directory access error: Cannot access directory '/home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/boom.txt'
+2025-12-01 15:11:31,125 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:11:31,125 - ERROR - Directory access error: Cannot access directory '/home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/boom1.txt'
+2025-12-01 15:13:43,947 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 15:13:43,947 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 15:13:43,947 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 15:13:43,955 - INFO - Processing request of type ListToolsRequest
+2025-12-01 15:14:00,649 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:14:00,650 - INFO - Reading file: boom.txt
+2025-12-01 15:14:00,650 - ERROR - File 'boom.txt' not found in provided file list
+2025-12-01 15:14:00,650 - INFO - File 'boom.txt' matched to: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/boom.txt (relative: small-test-repo/boom.txt)
+2025-12-01 15:14:00,650 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:14:00,655 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:14:00,655 - INFO - Reading file: boom1.txt
+2025-12-01 15:14:00,655 - ERROR - File 'boom1.txt' not found in provided file list
+2025-12-01 15:14:00,656 - INFO - File 'boom1.txt' matched to: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/boom1.txt (relative: small-test-repo/boom1.txt)
+2025-12-01 15:14:00,656 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 15:15:36,229 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:15:36,230 - ERROR - Directory access error: Cannot access directory '/home/piyush/mcp_project/context_window_fixer/small-test-repo'
+2025-12-01 15:19:52,346 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 15:19:52,346 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 15:19:52,346 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 15:19:52,353 - INFO - Processing request of type ListToolsRequest
+2025-12-01 15:20:06,090 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:20:06,090 - INFO - Directory 'small-test-repo' matched to: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo (relative: small-test-repo)
+2025-12-01 15:20:06,090 - INFO - Found directory in search paths: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo
+2025-12-01 15:20:06,090 - INFO - Listed files successfully
+2025-12-01 15:25:28,668 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 15:25:28,668 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 15:25:28,668 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 15:25:28,676 - INFO - Processing request of type ListToolsRequest
+2025-12-01 15:26:10,486 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:26:10,487 - INFO - Found most recent repository: uploading-user-input-in-MongoDB-using-pymongo
+2025-12-01 15:26:10,492 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:26:10,492 - ERROR - Directory access error: Cannot access directory 'small-test_repo'
+2025-12-01 15:27:40,583 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 15:27:40,583 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 15:27:40,583 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 15:27:40,591 - INFO - Processing request of type ListToolsRequest
+2025-12-01 15:54:39,802 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 15:54:39,802 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 15:54:39,802 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 15:54:39,810 - INFO - Processing request of type ListToolsRequest
+2025-12-01 15:54:58,602 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:54:58,602 - INFO - Found most recent repository: uploading-user-input-in-MongoDB-using-pymongo
+2025-12-01 15:54:58,608 - INFO - Processing request of type CallToolRequest
+2025-12-01 15:54:58,608 - INFO - Directory 'small-test-repo' matched to: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo (relative: small-test-repo)
+2025-12-01 15:54:58,608 - INFO - Listing files in folder: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo
+2025-12-01 16:02:37,863 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 16:02:37,863 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 16:02:37,863 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:02:37,871 - INFO - Processing request of type ListToolsRequest
+2025-12-01 16:02:56,057 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:02:56,058 - INFO - Found most recent repository: uploading-user-input-in-MongoDB-using-pymongo
+2025-12-01 16:02:56,063 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:02:56,064 - INFO - Directory 'small-test_repo' matched to: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo (relative: small-test-repo)
+2025-12-01 16:02:56,064 - INFO - Listing files in folder: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo
+2025-12-01 16:06:23,820 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 16:06:23,820 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 16:06:23,820 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:06:23,829 - INFO - Processing request of type ListToolsRequest
+2025-12-01 16:06:37,844 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:06:37,845 - INFO - Found most recent repository: uploading-user-input-in-MongoDB-using-pymongo
+2025-12-01 16:06:37,852 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:06:37,852 - INFO - Chain: Found most recent repo 'uploading-user-input-in-MongoDB-using-pymongo'
+2025-12-01 16:06:37,967 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:06:37,978 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:06:37,979 - INFO - Chain: Successfully read 2 files from 'uploading-user-input-in-MongoDB-using-pymongo'
+2025-12-01 16:13:10,914 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 16:13:10,914 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 16:13:10,914 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:13:10,922 - INFO - Processing request of type ListToolsRequest
+2025-12-01 16:13:33,381 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:13:33,381 - INFO - Found most recent repository: uploading-user-input-in-MongoDB-using-pymongo
+2025-12-01 16:13:33,387 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:13:33,387 - INFO - Chain: Found most recent repo 'uploading-user-input-in-MongoDB-using-pymongo'
+2025-12-01 16:13:33,388 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:13:33,388 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:13:33,388 - INFO - Chain: Successfully read 2 files from 'uploading-user-input-in-MongoDB-using-pymongo'
+2025-12-01 16:16:44,078 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 16:16:44,078 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 16:16:44,078 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:16:44,086 - INFO - Processing request of type ListToolsRequest
+2025-12-01 16:16:59,350 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:16:59,350 - INFO - Found most recent repository: uploading-user-input-in-MongoDB-using-pymongo
+2025-12-01 16:16:59,357 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:16:59,358 - INFO - Chain: Found most recent repo 'uploading-user-input-in-MongoDB-using-pymongo'
+2025-12-01 16:16:59,358 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:16:59,358 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:16:59,358 - INFO - Chain: Successfully read 2 files from 'uploading-user-input-in-MongoDB-using-pymongo'
+2025-12-01 16:32:20,117 - INFO - Starting background file synchronizer...
+2025-12-01 16:32:20,118 - INFO - Performing initial full sync...
+2025-12-01 16:32:20,118 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf
+2025-12-01 16:32:20,118 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/test_sync.txt -> /home/piyush/mcp_project/context_window_fixer/storage/test_sync.txt
+2025-12-01 16:32:20,118 - INFO - Full synchronization complete. Synced 2 files.
+2025-12-01 16:32:20,119 - INFO - Started watchdog file synchronizer on /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:32:20,125 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 16:32:20,125 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 16:32:20,125 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:32:20,132 - INFO - Processing request of type ListToolsRequest
+2025-12-01 16:33:28,312 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:33:28,313 - INFO - Found most recent repository: uploading-user-input-in-MongoDB-using-pymongo
+2025-12-01 16:33:28,317 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:33:28,317 - INFO - Chain: Found most recent repo 'uploading-user-input-in-MongoDB-using-pymongo'
+2025-12-01 16:33:28,318 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:33:28,318 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:33:28,318 - INFO - Chain: Successfully read 2 files from 'uploading-user-input-in-MongoDB-using-pymongo'
+2025-12-01 16:35:09,819 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf
+2025-12-01 16:35:09,821 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf
+2025-12-01 16:35:34,590 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:35:34,590 - INFO - Chain: Found most recent repo 'uploading-user-input-in-MongoDB-using-pymongo'
+2025-12-01 16:35:34,590 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:35:34,591 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:35:34,591 - INFO - Chain: Successfully read 2 files from 'uploading-user-input-in-MongoDB-using-pymongo'
+2025-12-01 16:40:20,207 - INFO - Starting background file synchronizer...
+2025-12-01 16:40:20,207 - INFO - Performing initial full sync...
+2025-12-01 16:40:20,210 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf
+2025-12-01 16:40:20,210 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf
+2025-12-01 16:40:20,210 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/test_sync.txt -> /home/piyush/mcp_project/context_window_fixer/storage/test_sync.txt
+2025-12-01 16:40:20,210 - INFO - Full synchronization complete. Synced 3 files.
+2025-12-01 16:40:20,211 - INFO - Started watchdog file synchronizer on /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:40:21,316 - ERROR - Error in read_latest_content
+Traceback (most recent call last):
+  File "/home/piyush/mcp_project/context_window_fixer/main.py", line 550, in read_latest_content
+    synchronizer.sync_files()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileSynchronizer' object has no attribute 'sync_files'. Did you mean: 'sync_all_files'?
+2025-12-01 16:40:22,418 - ERROR - Error in read_latest_content
+Traceback (most recent call last):
+  File "/home/piyush/mcp_project/context_window_fixer/main.py", line 550, in read_latest_content
+    synchronizer.sync_files()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileSynchronizer' object has no attribute 'sync_files'. Did you mean: 'sync_all_files'?
+2025-12-01 16:40:42,669 - INFO - Starting background file synchronizer...
+2025-12-01 16:40:42,669 - INFO - Performing initial full sync...
+2025-12-01 16:40:42,671 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf
+2025-12-01 16:40:42,671 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf
+2025-12-01 16:40:42,672 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/test_sync.txt -> /home/piyush/mcp_project/context_window_fixer/storage/test_sync.txt
+2025-12-01 16:40:42,672 - INFO - Full synchronization complete. Synced 3 files.
+2025-12-01 16:40:42,672 - INFO - Started watchdog file synchronizer on /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:40:43,779 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:40:43,779 - INFO - Chain: Read latest content 'single_file.txt' (file)
+2025-12-01 16:40:44,879 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:40:44,880 - INFO - Chain: Read latest content 'test_repo' (dir)
+2025-12-01 16:41:27,920 - INFO - Starting background file synchronizer...
+2025-12-01 16:41:27,921 - INFO - Performing initial full sync...
+2025-12-01 16:41:27,922 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf
+2025-12-01 16:41:27,923 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf
+2025-12-01 16:41:27,923 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/test_sync.txt -> /home/piyush/mcp_project/context_window_fixer/storage/test_sync.txt
+2025-12-01 16:41:27,923 - INFO - Full synchronization complete. Synced 3 files.
+2025-12-01 16:41:27,923 - INFO - Started watchdog file synchronizer on /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:41:27,928 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 16:41:27,928 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 16:41:27,929 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:41:27,936 - INFO - Processing request of type ListToolsRequest
+2025-12-01 16:42:01,328 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:42:01,328 - INFO - Reading file: boom.txt
+2025-12-01 16:42:01,329 - ERROR - File 'boom.txt' not found in provided file list
+2025-12-01 16:42:01,329 - INFO - File 'boom.txt' matched to: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/boom.txt (relative: small-test-repo/boom.txt)
+2025-12-01 16:42:01,329 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:42:01,338 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:42:01,338 - INFO - Reading file: boom1.txt
+2025-12-01 16:42:01,338 - ERROR - File 'boom1.txt' not found in provided file list
+2025-12-01 16:42:01,338 - INFO - File 'boom1.txt' matched to: /home/piyush/mcp_project/context_window_fixer/storage/small-test-repo/boom1.txt (relative: small-test-repo/boom1.txt)
+2025-12-01 16:42:01,338 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:45:30,028 - INFO - Starting background file synchronizer...
+2025-12-01 16:45:30,029 - INFO - Performing initial full sync...
+2025-12-01 16:45:30,031 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf
+2025-12-01 16:45:30,031 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf
+2025-12-01 16:45:30,031 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/test_sync.txt -> /home/piyush/mcp_project/context_window_fixer/storage/test_sync.txt
+2025-12-01 16:45:30,031 - INFO - Full synchronization complete. Synced 3 files.
+2025-12-01 16:45:30,032 - INFO - Started watchdog file synchronizer on /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:45:30,037 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 16:45:30,037 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 16:45:30,037 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:45:30,045 - INFO - Processing request of type ListToolsRequest
+2025-12-01 16:45:43,799 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:45:43,800 - INFO - Reading file: README.md
+2025-12-01 16:45:43,800 - ERROR - File 'README.md' not found in provided file list
+2025-12-01 16:45:43,800 - INFO - File 'README.md' matched to: /home/piyush/mcp_project/context_window_fixer/storage/uploading-user-input-in-MongoDB-using-pymongo/README.md (relative: uploading-user-input-in-MongoDB-using-pymongo/README.md)
+2025-12-01 16:45:43,800 - INFO - Successfully read text file with utf-8 encoding
+2025-12-01 16:50:13,821 - INFO - Starting background file synchronizer...
+2025-12-01 16:50:13,821 - INFO - Performing initial full sync...
+2025-12-01 16:50:13,824 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/6653049d-30ee-4dca-be8c-f6ff9c1d4b17_VISAPP_2016_241.pdf
+2025-12-01 16:50:13,824 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf -> /home/piyush/mcp_project/context_window_fixer/storage/5bc3d56a-a3ba-43ac-b308-5f0481ba212d_Homework1_CSE587.pdf
+2025-12-01 16:50:13,824 - INFO - Synced: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/test_sync.txt -> /home/piyush/mcp_project/context_window_fixer/storage/test_sync.txt
+2025-12-01 16:50:13,824 - INFO - Full synchronization complete. Synced 3 files.
+2025-12-01 16:50:13,825 - INFO - Started watchdog file synchronizer on /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:50:13,830 - INFO - Starting filesystem-explorer MCP server
+2025-12-01 16:50:13,831 - INFO - Storage path: /home/piyush/mcp_project/context_window_fixer/storage
+2025-12-01 16:50:13,831 - INFO - Upload path: /home/piyush/.local/lib/python3.12/site-packages/open_webui/data/uploads/
+2025-12-01 16:50:13,838 - INFO - Processing request of type ListToolsRequest
+2025-12-01 16:50:25,359 - INFO - Processing request of type CallToolRequest
+2025-12-01 16:50:25,359 - INFO - Reading file: README.md
+2025-12-01 16:50:25,359 - INFO - File 'README.md' matched to: /home/piyush/mcp_project/context_window_fixer/storage/uploading-user-input-in-MongoDB-using-pymongo/README.md (relative: uploading-user-input-in-MongoDB-using-pymongo/README.md)
+2025-12-01 16:50:25,360 - INFO - Successfully read text file with utf-8 encoding
